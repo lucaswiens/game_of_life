@@ -4,7 +4,7 @@ World::World(const size_t &rows, const size_t &columns, const char &life_cell, c
     for (size_t row = 0; row < this->rows; row++) {
         this->grid.push_back(std::vector<char>(this->columns, this->dead_cell));
         for (size_t column = 0; column < this->columns; column++) {
-            if (this->BuildFloater(row, column, this->rows / 2, this->columns / 2)) {
+            if (this->BuildFloater(row, column, 3, 3)) {
                 this->grid.at(row).at(column) = this->life_cell;
             }
         }
@@ -12,11 +12,12 @@ World::World(const size_t &rows, const size_t &columns, const char &life_cell, c
 }
 
 bool World::BuildFloater(const size_t &row, const size_t &column, const size_t &row_position, const size_t &column_position) {
-    return ((row == row_position && column == column_position - 2) ||
-                    (row == row_position && column == column_position - 1) ||
-                    (row == row_position && column == column_position) ||
-                    (row == row_position - 1 && column == column_position) ||
-                    (row == row_position - 2 && column == column_position - 1));
+    if (row_position + 2 > this->rows || column_position + 2 > this->columns) { return false;}
+    return ((row == row_position && column == column_position) ||
+            (row == row_position + 1 && column == column_position + 1) ||
+            (row == row_position + 1 && column == column_position + 2) ||
+            (row == row_position + 2 && column == column_position) ||
+            (row == row_position + 2 && column == column_position + 1));
 }
 
 void World::Print() {

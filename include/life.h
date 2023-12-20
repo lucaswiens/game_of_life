@@ -17,7 +17,7 @@ private:
     //sf::Color background_color = sf::Color(0x1E, 0x1E, 0x2E);
     sf::Color background_color = sf::Color(0x1E, 0x1E, 0x2E);
     sf::Color life_color = sf::Color(0xE1, 0xE1, 0xE2);
-    //sf::Color dead_color = sf::Color(0x1E, 0x1E, 0x2E);
+    sf::Color dead_color = sf::Color(0x2E, 0x2E, 0x3E);
 
     //void init();
     void ProcessEvents();
