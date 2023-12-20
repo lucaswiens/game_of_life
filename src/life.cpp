@@ -4,7 +4,7 @@
 Life::Life(const size_t &width, const size_t &height, const char &life_cell, const char &dead_cell, const int &speed) :
     width(width),
     height(height),
-    world(World(width, height, life_cell, dead_cell)),
+    world(World(height, width, life_cell, dead_cell)),
     window(sf::VideoMode(this->width * 50, this->height * 50), "Game of Life") {
     for (size_t row = 0; row < height; row++) {
     //for (size_t row = 0; row < 3; row++) {
