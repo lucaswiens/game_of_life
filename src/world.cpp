@@ -64,17 +64,10 @@ size_t World::CountNeighbors(const size_t &row, const size_t &column) {
     size_t number_of_life_neighbors = 0;
     size_t row_neighbor = 0, column_neighbor = 0;
 
-    //for (size_t row_index : {-1, 0, 1}) {
     for (int row_index = -1; row_index < 2; row_index++) {
         row_neighbor = row + row_index;
-        //for (size_t column_index : {-1, 0, 1}) {
         for (int column_index = -1; column_index < 2; column_index++) {
             column_neighbor = column + column_index;
-            //const bool &invalid_row = this->rows <= row_neighbor;
-            //const bool &invalid_column = this->columns <= column_neighbor;
-            //if (invalid_row || invalid_column) {
-            //    continue;
-            //}
             if (this->grid_last_cycle.at(row_neighbor).at(column_neighbor) != this->dead_cell) {
                 number_of_life_neighbors++;
             }
@@ -86,6 +79,13 @@ size_t World::CountNeighbors(const size_t &row, const size_t &column) {
     return number_of_life_neighbors;
 }
 
+void World::ToggleCell(const size_t &row, const size_t &column) {
+    if (IsAlive(row, column)) {
+        this->grid.at(row).at(column) = this->dead_cell;
+    } else {
+        this->grid.at(row).at(column) = this->life_cell;
+    }
+}
 bool World::IsAlive(const size_t &row, const size_t &column) {
     return this->grid.at(row).at(column) == this->life_cell;
 }
