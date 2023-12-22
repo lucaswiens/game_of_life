@@ -9,8 +9,8 @@ class World {
 private:
   size_t rows, columns, cycle = 0;
   char life_cell, dead_cell;
-  std::vector<std::vector<char>> grid;
-  std::vector<std::vector<char>> grid_last_cycle;
+  std::vector<std::vector<bool>> grid;
+  std::vector<std::vector<bool>> grid_last_cycle;
   bool CheckLife(const size_t &, const size_t &);
   size_t CountNeighbors(const size_t &, const size_t &);
   bool BuildFloater(const size_t &, const size_t &, const size_t &, const size_t &);
