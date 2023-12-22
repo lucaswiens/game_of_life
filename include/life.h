@@ -2,9 +2,6 @@
 #define GRAPHICS_H
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Color.hpp>
-#include <SFML/Graphics/RectangleShape.hpp>
-#include <SFML/Window/VideoMode.hpp>
 
 #include <cmath>
 

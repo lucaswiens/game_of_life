@@ -4,7 +4,7 @@ LIBS = -lsfml-graphics -lsfml-window -lsfml-system
 
 SRCDIR = src
 INCDIR = include
-BUILDDIR = .build
+BUILDDIR = build
 TARGET = life
 
 SOURCES := $(wildcard $(SRCDIR)/*.cpp)
